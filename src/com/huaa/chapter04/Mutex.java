@@ -1,4 +1,4 @@
-package com.huaa.chapter4;
+package com.huaa.chapter04;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.huaa.chapter5;
+package com.huaa.chapter05;
 
 import java.util.*;
 import java.util.concurrent.TimeoutException;

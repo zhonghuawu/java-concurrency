@@ -1,4 +1,4 @@
-package com.huaa.chapter2;
+package com.huaa.chapter02;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;

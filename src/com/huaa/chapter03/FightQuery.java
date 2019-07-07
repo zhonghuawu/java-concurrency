@@ -1,4 +1,4 @@
-package com.huaa.chapter3;
+package com.huaa.chapter03;
 
 import java.util.List;
 
