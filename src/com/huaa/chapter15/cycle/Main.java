@@ -1,4 +1,4 @@
-package com.huaa.chapter24.cycle;
+package com.huaa.chapter15.cycle;
 
 import java.util.concurrent.TimeUnit;
 
