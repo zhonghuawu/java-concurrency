@@ -6,18 +6,15 @@ package com.huaa.chapter16.thread.safe;
  * @author wu_zh
  * @date 2019/7/13 16:31
  */
-public class EatNoodleThread extends Thread {
+class EatNoodleThread extends Thread {
 
     private final String name;
 
-    private final Tableware leftTool;
+    private final TablewarePair tablewarePair;
 
-    private final Tableware rightTool;
-
-    public EatNoodleThread(String name, Tableware leftTool, Tableware rightTool) {
+    public EatNoodleThread(String name, TablewarePair tablewarePair) {
         this.name = name;
-        this.leftTool = leftTool;
-        this.rightTool = rightTool;
+        this.tablewarePair = tablewarePair;
     }
 
     @Override
@@ -28,22 +25,21 @@ public class EatNoodleThread extends Thread {
     }
 
     private void eat() {
-        synchronized (leftTool) {
-            System.out.println(name + " take up " + leftTool + "(left)");
-            synchronized (rightTool) {
-                System.out.println(name + " take up " + rightTool + "(right)");
-                System.out.println(name + " is eating now.");
-                System.out.println(name + " put down " + rightTool + "(right)");
-            }
-            System.out.println(name + " put down " + leftTool + "(left)");
+        synchronized (tablewarePair) {
+            System.out.println(name + " take up " + tablewarePair.getLeftTool() + "(left)");
+            System.out.println(name + " take up " + tablewarePair.getRightTool() + "(right)");
+            System.out.println(name + " is eating now.");
+            System.out.println(name + " put down " + tablewarePair.getRightTool() + "(right)");
+            System.out.println(name + " put down " + tablewarePair.getLeftTool() + "(left)");
         }
     }
 
     public static void main(String[] args) {
         Tableware fork = new Tableware("fork");
         Tableware knife = new Tableware("knife");
-        new EatNoodleThread("A", fork, knife).start();
-        new EatNoodleThread("B", knife, fork).start();
+        TablewarePair tablewarePair = new TablewarePair(fork, knife);
+        new EatNoodleThread("A", tablewarePair).start();
+        new EatNoodleThread("B", tablewarePair).start();
     }
 
 }

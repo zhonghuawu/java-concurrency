@@ -1,4 +1,4 @@
-package com.huaa.chapter16.thread.safe;
+package com.huaa.chapter16.thread.unsafe;
 
 /**
  * Desc:
