@@ -5,6 +5,7 @@ import com.huaa.chapter28.event.bus.EventBus;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Desc:
@@ -23,6 +24,8 @@ public class Main {
         final String targetPath = "E:\\monitor";
         DirectoryTargetMonitor monitor = new DirectoryTargetMonitor(eventBus, targetPath);
         monitor.startMonitor();
+        TimeUnit.MINUTES.sleep(5);
+        monitor.stopMonitor();
     }
 
 }
