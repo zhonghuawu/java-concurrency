@@ -13,7 +13,7 @@ public class ThreadIsInterrupted {
         Thread thread = new Thread() {
             @Override
             public void run() {
-                while(true) {
+                while (true) {
                     try {
                         TimeUnit.MINUTES.sleep(1);
                     } catch (InterruptedException e) {
